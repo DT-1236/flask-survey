@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block body %}
+<h1>THANK YOU</h1>
+{% for index in range(qnum) %}
+<h3>Question is {{ session['questions'][index] }}</h3>
+<h4>Answer is {{ session['responses'][index] }}</h4>
+
+{% if session['comments'][index] %}
+<h4>Comment entered was {{ session['comments'][index]}}</h4>
+{% endif %}
+{% endfor %}
+
+{% endblock %}

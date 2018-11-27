@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<p>Question Number is {{ qnum + 1 }} and the question is "{{ session['question'] }}"</p>
+<form method="POST" action="/questions/{{qnum + 1}}"> 
+{% for choice in session['choices'] %}
+    <!-- <input required type="radio" value="{{session['choices'].index(choice)}}" name="choice">{{ choice }} -->
+    <input required type="radio" value="{{ choice }}" name="choice">{{ choice }}
+{% endfor %}
+{% if session['text'] %}
+    <input type="text" name="freetext">Other
+{% endif %}
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}
+

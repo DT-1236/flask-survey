@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+{% for msg in get_flashed_messages() %}
+<p>{{ msg }}</p>
+{% endfor %}
+
+<form action="/questions/0" method="POST">
+<!-- <h1> {{ session['title']}} </h1>
+<p> {{ session['instructions'] }}</p> -->
+
+
+<select name="select">
+    {% for survey in session['surveys'] %}
+    <option  value="{{survey}}">{{survey.title()}}</option>
+    {% endfor %}
+
+</select>
+<button type="Submit">Go</button>
+
+</form>
+{% endblock %}
